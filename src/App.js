@@ -1,25 +1,19 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
+import Parent from "./Parent";
+import counterContext from "./counterContext";
 
 function App() {
+  let countState = useState(0);
+  {
+    /*idhr variable 1 hai lekin wo CONTEXT mai 2 ho kar jaega like: [countState,setCountState] yani countState ki value zero hai aur abi SetCountState hona baaki hai jo ham child.js mai karenge or ye value yahan se counter context mai jarhi hai jo hamne value neechay countercontext.provider mai pass kari hai*/
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <counterContext.Provider value={countState}>
+      <div className="App">
+        <Parent />
+      </div>
+    </counterContext.Provider>
   );
 }
 
